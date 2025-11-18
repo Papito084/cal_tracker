@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="COMPRA_PRODUCTO" directorySegmentName="seg_0" id="D4AE3B3B-D361-A782-40D1-346B385C4B66">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:43:49 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnSource>COMPRA PRODUCTO</nameOnSource>
+<nameOnTarget> </nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>2642D323-B47A-EE39-17A4-C620668CA72F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D40C5147-112D-8946-E73A-86C2C0A7B877</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

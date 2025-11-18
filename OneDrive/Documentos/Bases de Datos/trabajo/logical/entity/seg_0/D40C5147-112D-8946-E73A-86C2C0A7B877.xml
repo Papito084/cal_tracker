@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D40C5147-112D-8946-E73A-86C2C0A7B877" name="TICKET">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:01:26 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_TICKET" id="A972D442-01D4-1EE8-6BB1-C58CD31552DA">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:01:55 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_EVENTO" id="64494B99-FD7E-9F2C-2004-904481D7B159">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:02:39 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_ASISTENTE" id="7E85B642-F5ED-8F5A-CCAC-F10258151428">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:01:42 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOMBRE_TICKET" id="76A688F4-07F8-F7A7-5C5F-3B989B29E33F">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:03:44 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PRECIO_BASE" id="CCBCE40A-ACDE-BD64-3520-9A9AEAAF213E">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:04:41 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TIPO_TICKET" id="CD168971-D329-4AB8-D535-3A566811629D">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:02:12 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ES_NOMINATIVO" id="80D9B2BD-3C44-8F8C-39E2-0012444F0235">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:04:55 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_EVENTO1" id="AD2330B5-479A-A2B2-0706-B9A16C2D53C5">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:46:06 UTC</createdTime>
+<generatorID>9EDF4816-EF97-6F2B-8052-5C8CBAF81C3E</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<referedAttribute>42A86EFB-0296-0B48-F183-80F79AC46749</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_PERSONA" id="F75CDEB0-792B-5D57-23F4-541AD02EFC6F">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:03:44 UTC</createdTime>
+<generatorID>B1042261-3C42-1A78-5B5A-1B5B8DA846CE</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<referedAttribute>91AF2416-B6EB-3B27-0333-9DD7BAF9480E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3C10F224-4E32-553D-65EE-900368672879" name="TICKET PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:02:14 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A972D442-01D4-1EE8-6BB1-C58CD31552DA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

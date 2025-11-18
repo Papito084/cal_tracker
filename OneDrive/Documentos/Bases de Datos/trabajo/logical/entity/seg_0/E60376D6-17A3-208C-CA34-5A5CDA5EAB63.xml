@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E60376D6-17A3-208C-CA34-5A5CDA5EAB63" name="RECIBO_FISCAL">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:12:29 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_RECIBO" id="D9780452-7A63-CABE-00BA-B42E2F5EA50B">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:42:11 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_DONACION" id="BF723C09-E370-2F20-0FCB-85E5C57B1E2B">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:42:27 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_DONANTE" id="52AC2FF5-0C46-FBD2-49F5-7E3556E4DE99">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:02:58 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FECHA_EMISION" id="813A9BC5-2B4B-A35A-7135-C0C359179A7C">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:42:47 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATOS_ENVIADOS_HACIENDA" id="77A1F26A-FB51-8269-4225-2AD341F3AE08">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:43:03 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 CHAR</dataTypeSize>
+<ownDataTypeParameters>1000 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_DONACION1" id="74EDEF40-CC78-B96F-D5B5-13617CE759FB">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:48:29 UTC</createdTime>
+<generatorID>241FE7BB-EBE0-E569-04FF-46274BF85AFA</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<referedAttribute>8BC005DF-B735-966F-7DF0-FF2734CF29E3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="874C45C2-3CE9-3C30-3ED3-692276E25310" name="RECIBO_FISCAL PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 17:42:25 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D9780452-7A63-CABE-00BA-B42E2F5EA50B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

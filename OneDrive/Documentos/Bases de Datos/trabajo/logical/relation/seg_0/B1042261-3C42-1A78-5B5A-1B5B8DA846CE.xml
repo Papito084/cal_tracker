@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ASISTE_A" directorySegmentName="seg_0" id="B1042261-3C42-1A78-5B5A-1B5B8DA846CE">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:03:44 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<sourcePk>BEE11CBF-59B4-72E9-E7FF-1353D7AB3BB0</sourcePk>
+<targetPk>3C10F224-4E32-553D-65EE-900368672879</targetPk>
+<identifying>false</identifying>
+<nameOnSource>ASISTE A</nameOnSource>
+<nameOnTarget> </nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6B06C416-AD49-A643-E06A-C5914F9C4E81</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>D40C5147-112D-8946-E73A-86C2C0A7B877</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

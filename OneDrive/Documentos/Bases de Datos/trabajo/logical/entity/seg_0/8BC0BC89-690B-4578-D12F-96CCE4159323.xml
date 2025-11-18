@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8BC0BC89-690B-4578-D12F-96CCE4159323" name="ORGANIZACION">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 16:44:32 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_ORGANIZACION" id="2323F380-53BC-3898-D518-BDF6C03CEA35">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 16:44:47 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CIF" id="18F25228-69FB-9BBA-99A4-435CF04F0913">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 16:45:09 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOMBRE_COMERCIAL" id="76D5F992-2143-9D77-FC77-4ECB55019D3D">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 16:45:26 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CONTACTO" id="A1A7AB6A-4095-789D-1753-1B89E7EE1479">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 16:45:40 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="23846F46-E311-EF98-2744-E23E7DABBD11" name="ORGANIZACION PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 16:45:06 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2323F380-53BC-3898-D518-BDF6C03CEA35</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="A69EF577-5871-4F31-44DE-6143E157C62F" name="CIF">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 16:48:05 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<engineerTo>
+<item key="F6557CD7-F28A-6C88-5322-0A03AF22F4BD" value="true"/>
+</engineerTo>
+<newElementsIDs>18F25228-69FB-9BBA-99A4-435CF04F0913</newElementsIDs>
+<usedAttributes>
+<attributeRef>18F25228-69FB-9BBA-99A4-435CF04F0913</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
