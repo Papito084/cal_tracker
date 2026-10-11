@@ -7,6 +7,7 @@ import os
 import base64
 from typing import Optional
 from fastapi import FastAPI, UploadFile, File, Form, Request, HTTPException, Depends
+from fastapi.responses import JSONResponse
 from auth import get_current_user, router as auth_router
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -33,7 +34,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
+)\n\n# Global exception handler\n@app.exception_handler(Exception)\nasync def global_exception_handler(request: Request, exc: Exception):\n    return JSONResponse(status_code=500, content={"message": "Internal server error", "details": str(exc)})
 
 # -------------------------------------------------------------
 # API Endpoints
