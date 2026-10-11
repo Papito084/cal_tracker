@@ -6,7 +6,8 @@ metabolic calculation, multimodal food camera scanner, weight charts, and meal e
 import os
 import base64
 from typing import Optional
-from fastapi import FastAPI, UploadFile, File, Form, Request, HTTPException
+from fastapi import FastAPI, UploadFile, File, Form, Request, HTTPException, Depends
+from auth import get_current_user, router as auth_router
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -20,6 +21,7 @@ import vision_service
 database.init_db()
 
 app = FastAPI(title=settings.APP_NAME, version=settings.APP_VERSION)
+app.include_router(auth_router)
 
 # Enable CORS for mobile local network access
 app.add_middleware(
@@ -35,12 +37,12 @@ app.add_middleware(
 # -------------------------------------------------------------
 
 @app.get("/api/profile")
-def get_profile():
-    profile = database.get_user_profile()
+def get_profile(current_user: int = Depends(get_current_user)):
+    profile = database.get_user_profile(current_user)
     return {"profile": profile}
 
 @app.post("/api/profile")
-async def save_profile(request: Request):
+async def save_profile(request: Request, current_user: int = Depends(get_current_user)):
     data = await request.json()
     # Calculate metabolic targets
     plan = nutrition_calc.calculate_nutrition_plan(
@@ -55,6 +57,7 @@ async def save_profile(request: Request):
     )
     
     full_profile = {
+        "user_id": current_user,
         "name": data.get("name", "Usuario"),
         "gender": data.get("gender", "male"),
         "age": int(data.get("age", 25)),
@@ -70,14 +73,14 @@ async def save_profile(request: Request):
     return {"status": "ok", "profile": full_profile}
 
 @app.get("/api/dashboard")
-def get_dashboard(date_str: Optional[str] = None):
-    profile = database.get_user_profile()
+def get_dashboard(date_str: Optional[str] = None, current_user: int = Depends(get_current_user)):
+    profile = database.get_user_profile(current_user)
     if not profile:
         return {"has_profile": False}
     
-    summary = database.get_daily_summary(date_str)
-    meals = database.get_meals_for_date(date_str)
-    weights = database.get_weight_history()
+    summary = database.get_daily_summary(current_user, date_str)
+    meals = database.get_meals_for_date(current_user, date_str)
+    weights = database.get_weight_history(current_user)
     
     return {
         "has_profile": True,
@@ -110,9 +113,10 @@ async def scan_food(file: UploadFile = File(...)):
     }
 
 @app.post("/api/log-meal")
-async def log_meal_endpoint(request: Request):
+async def log_meal_endpoint(request: Request, current_user: int = Depends(get_current_user)):
     data = await request.json()
     meal_id = database.log_meal(
+        user_id=current_user,
         dish_name=data.get("dish_name", "Comida"),
         total_calories=float(data.get("total_calories", 0)),
         protein_g=float(data.get("protein_g", 0)),
@@ -122,7 +126,8 @@ async def log_meal_endpoint(request: Request):
         confidence_score=float(data.get("confidence_score", 1.0)),
         items=data.get("items", []),
         image_base64=data.get("image_base64", None),
-        meal_type=data.get("meal_type", "Comida")
+        meal_type=data.get("meal_type", "Comida"),
+        target_date=data.get("date_logged", None)
     )
     return {"status": "ok", "meal_id": meal_id}
 
@@ -142,22 +147,22 @@ async def update_meal_endpoint(meal_id: int, request: Request):
     return {"status": "ok", "updated": success}
 
 @app.delete("/api/meal/{meal_id}")
-def delete_meal_endpoint(meal_id: int):
-    success = database.delete_meal(meal_id)
+def delete_meal_endpoint(meal_id: int, current_user: int = Depends(get_current_user)):
+    success = database.delete_meal(meal_id, current_user)
     return {"status": "ok", "deleted": success}
 
 @app.post("/api/weight")
-async def log_weight_endpoint(request: Request):
+async def log_weight_endpoint(request: Request, current_user: int = Depends(get_current_user)):
     data = await request.json()
     weight_kg = float(data.get("weight_kg", 0))
     target_date = data.get("date_logged")
     notes = data.get("notes", "")
-    log_id = database.log_weight(weight_kg, target_date, notes)
+    log_id = database.log_weight(current_user, weight_kg, target_date, notes)
     return {"status": "ok", "log_id": log_id}
 
 @app.get("/api/weight-history")
-def get_weight_history_endpoint():
-    history = database.get_weight_history()
+def get_weight_history_endpoint(current_user: int = Depends(get_current_user)):
+    history = database.get_weight_history(current_user)
     return {"history": history}
 
 @app.post("/api/reset-profile")
@@ -1285,9 +1290,39 @@ def index_page():
   </div>
 </div>
 
+<!-- MODAL: LOGIN / REGISTER -->
+<div id="modal-login" class="modal-overlay">
+  <div class="sheet-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h3 style="font-size: 1.2rem; font-weight: 800;">Iniciar Sesión / Registro</h3>
+      <button class="icon-btn" onclick="closeModal('modal-login')"><i data-lucide="x" style="width: 18px; height: 18px;"></i></button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Correo / Usuario</label>
+      <input type="text" id="auth-username" class="input-field" placeholder="email@example.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Contraseña</label>
+      <input type="password" id="auth-password" class="input-field" placeholder="******">
+    </div>
+    <button class="btn-primary" onclick="submitLogin()">Iniciar Sesión</button>
+    <button class="btn-secondary" onclick="submitRegister()" style="margin-left:8px;">Registrarse</button>
+  </div>
+</div>
 <!-- Scripts -->
 <script>
   let currentProfile = null;
+  // Helper to retrieve JWT token from localStorage
+  function getAuthHeaders() {
+    const token = localStorage.getItem('token');
+    return token ? { 'Authorization': `Bearer ${token}` } : {};
+  }
+  // Wrapper for API calls that includes auth headers when token exists
+  async function apiFetch(url, options = {}) {
+    const authHeaders = getAuthHeaders();
+    options.headers = { ...(options.headers || {}), ...authHeaders };
+    return fetch(url, options);
+  }
   let currentScanData = null;
   let weightChartInstance = null;
   let currentMealsCache = [];
@@ -1341,7 +1376,11 @@ def index_page():
   // Dashboard Loader
   async function fetchDashboard() {
     try {
-      const res = await fetch('/api/dashboard');
+      const res = await apiFetch('/api/dashboard');
+      if (res.status === 401) {
+        openLoginModal();
+        return;
+      }
       const data = await res.json();
 
       if (!data.has_profile) {
@@ -1802,3 +1841,76 @@ def index_page():
 if __name__ == "__main__":
     print(f"Starting Cal AI on http://{settings.HOST}:{settings.PORT} ...")
     uvicorn.run(app, host=settings.HOST, port=settings.PORT)
+// Open login modal (used when 401)
+function openLoginModal() {
+  openModal('modal-login');
+}
+
+// Submit login credentials
+async function submitLogin() {
+  const username = document.getElementById('auth-username').value.trim();
+  const password = document.getElementById('auth-password').value;
+  if (!username || !password) {
+    showToast('Debe ingresar usuario y contraseña');
+    return;
+  }
+  try {
+    const res = await apiFetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      showToast(err.detail || 'Error al iniciar sesión');
+      return;
+    }
+    const data = await res.json();
+    localStorage.setItem('token', data.access_token);
+    closeModal('modal-login');
+    fetchDashboard();
+  } catch (e) {
+    console.error(e);
+    showToast('Fallo al contactar el servidor de login');
+  }
+}
+
+// Submit registration credentials
+async function submitRegister() {
+  const username = document.getElementById('auth-username').value.trim();
+  const password = document.getElementById('auth-password').value;
+  if (!username || !password) {
+    showToast('Debe ingresar usuario y contraseña');
+    return;
+  }
+  try {
+    const res = await apiFetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      showToast(err.detail || 'Error al registrar');
+      return;
+    }
+    // Auto‑login after successful registration
+    const loginRes = await apiFetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    if (loginRes.ok) {
+      const loginData = await loginRes.json();
+      localStorage.setItem('token', loginData.access_token);
+      closeModal('modal-login');
+      fetchDashboard();
+    } else {
+      const err = await loginRes.json();
+      showToast(err.detail || 'Registro creado, pero fallo al iniciar sesión');
+    }
+  } catch (e) {
+    console.error(e);
+    showToast('Fallo al contactar el servidor de registro');
+  }
+}

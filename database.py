@@ -127,18 +127,24 @@ def save_user_profile(data: Dict[str, Any]) -> int:
     """, data)
     profile_id = cursor.lastrowid
     
-    # Also log current weight if not logged today
+    # Also log current weight if not logged today for this user
     today_str = date.today().isoformat()
-    cursor.execute("SELECT id FROM weight_logs WHERE date_logged = ?", (today_str,))
+    cursor.execute("SELECT id FROM weight_logs WHERE user_id = ? AND date_logged = ?", (data["user_id"], today_str))
     if not cursor.fetchone():
-        cursor.execute("""
-            INSERT INTO weight_logs (date_logged, weight_kg, notes)
-            VALUES (?, ?, 'Registro de perfil')
-        """, (today_str, float(data["current_weight_kg"])))
+        cursor.execute(
+            """
+                INSERT INTO weight_logs (user_id, date_logged, weight_kg, notes)
+                VALUES (?, ?, ?, 'Registro de perfil')
+            """,
+            (data["user_id"], today_str, float(data["current_weight_kg"]))
+        )
     else:
-        cursor.execute("""
-            UPDATE weight_logs SET weight_kg = ? WHERE date_logged = ?
-        """, (float(data["current_weight_kg"]), today_str))
+        cursor.execute(
+            """
+                UPDATE weight_logs SET weight_kg = ? WHERE user_id = ? AND date_logged = ?
+            """,
+            (float(data["current_weight_kg"]), data["user_id"], today_str)
+        )
 
     conn.commit()
     conn.close()
@@ -173,7 +179,7 @@ def log_meal(
             raw_items_json, image_base64
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
-        target_date, meal_type, dish_name, total_calories,
+        user_id, target_date, meal_type, dish_name, total_calories,
         protein_g, carbs_g, fat_g, fiber_g, confidence_score,
         items_json, image_base64
     ))
@@ -182,17 +188,8 @@ def log_meal(
     conn.close()
     return meal_id
 
-def update_meal(
-    meal_id: int,
-    dish_name: str,
-    total_calories: float,
-    protein_g: float,
-    carbs_g: float,
-    fat_g: float,
-    fiber_g: float = 0.0,
-    meal_type: str = "Comida"
-) -> bool:
-    """Update an existing meal's details."""
+def update_meal(user_id: int, meal_id: int, dish_name: str, total_calories: float, protein_g: float, carbs_g: float, fat_g: float, fiber_g: float = 0.0, meal_type: str = "Comida") -> bool:
+    """Update an existing meal's details for a specific user."""
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("""
@@ -204,10 +201,10 @@ def update_meal(
             fat_g = ?,
             fiber_g = ?,
             meal_type = ?
-        WHERE id = ?
+        WHERE id = ? AND user_id = ?
     """, (
         dish_name, total_calories, protein_g, carbs_g,
-        fat_g, fiber_g, meal_type, meal_id
+        fat_g, fiber_g, meal_type, meal_id, user_id
     ))
     updated = cursor.rowcount > 0
     conn.commit()
@@ -262,13 +259,13 @@ def delete_meal(meal_id: int, user_id: int) -> bool:
     conn.close()
     return deleted
 
-def log_weight(weight_kg: float, target_date: Optional[str] = None, notes: str = "") -> int:
+def log_weight(user_id: int, weight_kg: float, target_date: Optional[str] = None, notes: str = "") -> int:
     """Log or update weight measurement for a specific date."""
     if not target_date:
         target_date = date.today().isoformat()
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id FROM weight_logs WHERE date_logged = ?", (target_date,))
+    cursor.execute("SELECT id FROM weight_logs WHERE user_id = ? AND date_logged = ?", (user_id, target_date))
     row = cursor.fetchone()
     if row:
         cursor.execute("""
@@ -292,11 +289,11 @@ def log_weight(weight_kg: float, target_date: Optional[str] = None, notes: str =
     conn.close()
     return log_id
 
-def get_weight_history() -> List[Dict[str, Any]]:
-    """Get all weight logs ordered chronologically for charts."""
+def get_weight_history(user_id: int) -> List[Dict[str, Any]]:
+    """Get weight logs for a specific user ordered chronologically for charts."""
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM weight_logs ORDER BY date_logged ASC, id ASC")
+    cursor.execute("SELECT * FROM weight_logs WHERE user_id = ? ORDER BY date_logged ASC, id ASC", (user_id,))
     rows = cursor.fetchall()
     conn.close()
     return [dict(r) for r in rows]
