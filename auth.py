@@ -17,7 +17,7 @@ import database
 router = APIRouter()
 
 # Cryptographic context for password hashing
-pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # Security scheme for extracting Bearer token
 bearer_scheme = HTTPBearer(auto_error=False)
