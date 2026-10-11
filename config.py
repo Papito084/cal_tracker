@@ -24,6 +24,6 @@ class Settings:
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "").strip()
     
     # Model configuration
-    VISION_MODEL: str = os.getenv("VISION_MODEL", "gemini-2.5-flash").strip()
+    JWT_SECRET: str = os.getenv("JWT_SECRET", "supersecretkey")
 
 settings = Settings()

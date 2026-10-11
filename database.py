@@ -17,10 +17,21 @@ def init_db() -> None:
     conn = get_db_connection()
     cursor = conn.cursor()
     
+    # Users table
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    """)
+    
     # User Profile table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS user_profile (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
         name TEXT DEFAULT 'Usuario',
         gender TEXT NOT NULL,
         age INTEGER NOT NULL,
@@ -45,6 +56,7 @@ def init_db() -> None:
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS daily_meals (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
         date_logged DATE NOT NULL,
         timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         meal_type TEXT DEFAULT 'Comida',
@@ -64,26 +76,39 @@ def init_db() -> None:
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS weight_logs (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
         date_logged DATE NOT NULL,
         weight_kg REAL NOT NULL,
         notes TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
     );
     """)
 
     conn.commit()
     conn.close()
 
-def get_user_profile() -> Optional[Dict[str, Any]]:
-    """Retrieve the latest user profile, or None if not set."""
+def get_user_profile(user_id: int) -> Optional[Dict[str, Any]]:
+    """Retrieve the profile for the given user_id, or None if not set."""
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM user_profile ORDER BY id DESC LIMIT 1")
+    cursor.execute("SELECT * FROM user_profile WHERE user_id = ? ORDER BY id DESC LIMIT 1", (user_id,))
     row = cursor.fetchone()
     conn.close()
     if row:
         return dict(row)
     return None
+# Deprecated duplicate get_user_profile removed
+# def get_user_profile() -> Optional[Dict[str, Any]]:
+#     """Retrieve the latest user profile, or None if not set."""
+#     conn = get_db_connection()
+#     cursor = conn.cursor()
+#     cursor.execute("SELECT * FROM user_profile ORDER BY id DESC LIMIT 1")
+#     row = cursor.fetchone()
+#     conn.close()
+#     if row:
+#         return dict(row)
+#     return None
 
 def save_user_profile(data: Dict[str, Any]) -> int:
     """Insert or update user profile and register initial weight entry."""
@@ -91,11 +116,11 @@ def save_user_profile(data: Dict[str, Any]) -> int:
     cursor = conn.cursor()
     cursor.execute("""
         INSERT INTO user_profile (
-            name, gender, age, height_cm, current_weight_kg,
+            user_id, name, gender, age, height_cm, current_weight_kg,
             target_weight_kg, activity_level, goal, target_weeks,
             bmr, tdee, daily_calories, protein_g, fat_g, carbs_g, updated_at
         ) VALUES (
-            :name, :gender, :age, :height_cm, :current_weight_kg,
+            :user_id, :name, :gender, :age, :height_cm, :current_weight_kg,
             :target_weight_kg, :activity_level, :goal, :target_weeks,
             :bmr, :tdee, :daily_calories, :protein_g, :fat_g, :carbs_g, CURRENT_TIMESTAMP
         )
@@ -120,6 +145,7 @@ def save_user_profile(data: Dict[str, Any]) -> int:
     return profile_id
 
 def log_meal(
+    user_id: int,
     dish_name: str,
     total_calories: float,
     protein_g: float,
@@ -142,10 +168,10 @@ def log_meal(
     cursor = conn.cursor()
     cursor.execute("""
         INSERT INTO daily_meals (
-            date_logged, meal_type, dish_name, total_calories,
+            user_id, date_logged, meal_type, dish_name, total_calories,
             protein_g, carbs_g, fat_g, fiber_g, confidence_score,
             raw_items_json, image_base64
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
         target_date, meal_type, dish_name, total_calories,
         protein_g, carbs_g, fat_g, fiber_g, confidence_score,
@@ -188,8 +214,8 @@ def update_meal(
     conn.close()
     return updated
 
-def get_meals_for_date(target_date: Optional[str] = None) -> List[Dict[str, Any]]:
-    """Retrieve meals for a specific date (defaults to today)."""
+def get_meals_for_date(user_id: int, target_date: Optional[str] = None) -> List[Dict[str, Any]]:
+    """Retrieve meals for a specific date for the given user (defaults to today)."""
     if not target_date:
         target_date = date.today().isoformat()
 
@@ -197,9 +223,9 @@ def get_meals_for_date(target_date: Optional[str] = None) -> List[Dict[str, Any]
     cursor = conn.cursor()
     cursor.execute("""
         SELECT * FROM daily_meals
-        WHERE date_logged = ?
+        WHERE user_id = ? AND date_logged = ?
         ORDER BY timestamp DESC
-    """, (target_date,))
+    """, (user_id, target_date))
     rows = cursor.fetchall()
     conn.close()
 
@@ -213,9 +239,9 @@ def get_meals_for_date(target_date: Optional[str] = None) -> List[Dict[str, Any]
         meals.append(meal)
     return meals
 
-def get_daily_summary(target_date: Optional[str] = None) -> Dict[str, float]:
-    """Calculate total consumed calories and macros for a date."""
-    meals = get_meals_for_date(target_date)
+def get_daily_summary(user_id: int, target_date: Optional[str] = None) -> Dict[str, float]:
+    """Calculate total consumed calories and macros for a date for the given user."""
+    meals = get_meals_for_date(user_id, target_date)
     summary = {
         "calories": sum(m["total_calories"] for m in meals),
         "proteins": sum(m["protein_g"] for m in meals),
@@ -226,11 +252,11 @@ def get_daily_summary(target_date: Optional[str] = None) -> Dict[str, float]:
     }
     return summary
 
-def delete_meal(meal_id: int) -> bool:
-    """Delete a meal by ID."""
+def delete_meal(meal_id: int, user_id: int) -> bool:
+    """Delete a meal by ID for the given user."""
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM daily_meals WHERE id = ?", (meal_id,))
+    cursor.execute("DELETE FROM daily_meals WHERE id = ? AND user_id = ?", (meal_id, user_id))
     deleted = cursor.rowcount > 0
     conn.commit()
     conn.close()
