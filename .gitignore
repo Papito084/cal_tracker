@@ -1,6 +1,11 @@
+# Ignore environment and build files
 .env
 __pycache__/
 *.pyc
 .idea/
 .vscode/
 .DS_Store
+
+# Ignore user data directories
+Downloads/
+OneDrive/
