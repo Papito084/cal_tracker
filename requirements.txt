@@ -6,3 +6,4 @@ pyjwt
 python-multipart
 pydantic
 google-generativeai
+python-dotenv
