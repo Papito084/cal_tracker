@@ -9,3 +9,4 @@ __pycache__/
 # Ignore user data directories
 Downloads/
 OneDrive/
+\.venv/

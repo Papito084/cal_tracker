@@ -37,61 +37,73 @@ def calculate_nutrition_plan(
     target_weight_kg: float,
     activity_level: str,
     goal: str,
-    weeks: int
+    weeks: int | str,
 ) -> Dict[str, Any]:
+    """Calculate a full nutrition plan.
+    ``weeks`` may be supplied as a string from the frontend, so we coerce it to an int
+    and enforce a minimum of 1 to avoid division‑by‑zero or NaN results.
     """
-    Calculates full nutrition target plan:
-    - BMR & TDEE
-    - Caloric deficit/surplus required
-    - Daily calorie target (capped safely)
-    - Macronutrient split:
-        * Protein: ~2.0 g/kg of current body weight (4 kcal/g)
-        * Fat: 25-30% of total daily calories (9 kcal/g)
-        * Carbs: Remaining calories (4 kcal/g)
-    """
-    weeks = max(1, weeks)
+    # ------------------------------------------------------------------
+    # 1️⃣ Sanitize weeks input
+    # ------------------------------------------------------------------
+    try:
+        weeks = int(weeks)
+    except Exception:
+        weeks = 0
+    weeks = max(1, weeks)  # guarantee at least one week
+
+    # ------------------------------------------------------------------
+    # 2️⃣ Core metabolic calculations (unchanged)
+    # ------------------------------------------------------------------
     bmr = calculate_bmr(gender, current_weight_kg, height_cm, age)
     tdee = calculate_tdee(bmr, activity_level)
 
     weight_diff = target_weight_kg - current_weight_kg
     total_days = weeks * 7.0
 
-    # 1 kg of body mass roughly equates to ~7700 kcal
-    # Daily adjustment: (weight_diff * 7700) / total_days
+    # 1 kg ≈ 7700 kcal
     raw_daily_adj = (weight_diff * 7700.0) / total_days
 
-    # Set boundaries based on goal
+    # ------------------------------------------------------------------
+    # 3️⃣ Goal‑specific calorie adjustment
+    # ------------------------------------------------------------------
     if goal == "lose_weight":
-        # Weight loss: deficit
-        # Healthy limit: max 1000 kcal deficit/day, min 1200 kcal/day total
-        daily_deficit = abs(raw_daily_adj) if raw_daily_adj < 0 else (500.0 if weight_diff == 0 else abs(raw_daily_adj))
+        daily_deficit = (
+            abs(raw_daily_adj)
+            if raw_daily_adj < 0
+            else (500.0 if weight_diff == 0 else abs(raw_daily_adj))
+        )
         daily_deficit = min(daily_deficit, 1000.0)
         daily_calories = max(1200.0, tdee - daily_deficit)
     elif goal == "gain_muscle":
-        # Muscle building: surplus (usually 250-500 kcal/day)
         daily_surplus = raw_daily_adj if raw_daily_adj > 0 else 300.0
         daily_surplus = min(max(daily_surplus, 200.0), 750.0)
         daily_calories = tdee + daily_surplus
-    else:  # maintain
+    else:
         daily_calories = tdee
 
     daily_calories = round(daily_calories)
 
-    # 1. Protein: 2.0g per kg of bodyweight
+    # ------------------------------------------------------------------
+    # 4️⃣ Macronutrient split
+    # ------------------------------------------------------------------
     protein_g = round(current_weight_kg * 2.0, 1)
     protein_cals = protein_g * 4.0
 
-    # 2. Fats: ~27% of daily calories
     fat_cals = daily_calories * 0.27
     fat_g = round(fat_cals / 9.0, 1)
 
-    # 3. Carbs: Remaining calories
     remaining_cals = max(0.0, daily_calories - (protein_cals + fat_cals))
     carbs_g = round(remaining_cals / 4.0, 1)
 
-    # Weekly pace
+    # ------------------------------------------------------------------
+    # 5️⃣ Weekly pace (kg per week) – weeks is guaranteed >= 1
+    # ------------------------------------------------------------------
     pace_kg_week = round(weight_diff / weeks, 2)
 
+    # ------------------------------------------------------------------
+    # 6️⃣ Return the full plan
+    # ------------------------------------------------------------------
     return {
         "bmr": round(bmr),
         "tdee": round(tdee),
@@ -99,6 +111,6 @@ def calculate_nutrition_plan(
         "protein_g": protein_g,
         "fat_g": fat_g,
         "carbs_g": carbs_g,
-        "pace_kg_week": pace_kg_week,
-        "deficit_or_surplus": round(daily_calories - tdee)
+        "kg_per_week": pace_kg_week,
+        "deficit_or_surplus": round(daily_calories - tdee),
     }

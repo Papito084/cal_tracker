@@ -1425,8 +1425,10 @@ def index_page():
     document.getElementById('goal-summary-title').innerText = goalText;
     document.getElementById('goal-summary-sub').innerText = `En ${profile.target_weeks} sem • Meta: ${profile.target_weight_kg} kg (Actual: ${profile.current_weight_kg} kg)`;
     
-    const rateVal = profile.pace_kg_week;
-    document.getElementById('goal-summary-rate').innerText = `${rateVal > 0 ? '+' : ''}${rateVal} kg/sem`;
+    const rawRate = parseFloat(profile.kg_per_week);
+const rateVal = isNaN(rawRate) ? 0 : rawRate.toFixed(1);
+document.getElementById('goal-summary-rate').innerText = `${Number(rateVal) > 0 ? '+' : ''}${rateVal} kg/sem`;
+
 
     // 3. Macronutrients
     renderMacro('protein', summary.proteins, profile.protein_g);
@@ -1833,6 +1835,80 @@ def index_page():
     closeModal('modal-settings');
     location.reload();
   }
+  // Open login modal (used when 401)
+  function openLoginModal() {
+    openModal('modal-login');
+  }
+
+  // Submit login credentials
+  async function submitLogin() {
+    const username = document.getElementById('auth-username').value.trim();
+    const password = document.getElementById('auth-password').value;
+    if (!username || !password) {
+      showToast('Debe ingresar usuario y contraseña');
+      return;
+    }
+    try {
+      const res = await apiFetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        showToast(err.detail || 'Error al iniciar sesión');
+        return;
+      }
+      const data = await res.json();
+      localStorage.setItem('token', data.access_token);
+      closeModal('modal-login');
+      fetchDashboard();
+    } catch (e) {
+      console.error(e);
+      showToast('Fallo al contactar el servidor de login');
+    }
+  }
+
+  // Submit registration credentials
+  async function submitRegister() {
+    const username = document.getElementById('auth-username').value.trim();
+    const password = document.getElementById('auth-password').value;
+    if (!username || !password) {
+      showToast('Debe ingresar usuario y contraseña');
+      return;
+    }
+    try {
+      const res = await apiFetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        showToast(err.detail || 'Error al registrar');
+        return;
+      }
+      // Auto-login after successful registration
+      const loginRes = await apiFetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      if (loginRes.ok) {
+        const loginData = await loginRes.json();
+        localStorage.setItem('token', loginData.access_token);
+        closeModal('modal-login');
+        fetchDashboard();
+      } else {
+        const err = await loginRes.json();
+        showToast(err.detail || 'Registro creado, pero fallo al iniciar sesión');
+      }
+    } catch (e) {
+      console.error(e);
+      showToast('Fallo al contactar el servidor de registro');
+    }
+  }
+
 </script>
 </body>
 </html>
@@ -1841,76 +1917,41 @@ def index_page():
 if __name__ == "__main__":
     print(f"Starting Cal AI on http://{settings.HOST}:{settings.PORT} ...")
     uvicorn.run(app, host=settings.HOST, port=settings.PORT)
-// Open login modal (used when 401)
-function openLoginModal() {
-  openModal('modal-login');
-}
+# End of file (cleaned)
 
-// Submit login credentials
-async function submitLogin() {
-  const username = document.getElementById('auth-username').value.trim();
-  const password = document.getElementById('auth-password').value;
-  if (!username || !password) {
-    showToast('Debe ingresar usuario y contraseña');
-    return;
-  }
-  try {
-    const res = await apiFetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      showToast(err.detail || 'Error al iniciar sesión');
-      return;
-    }
-    const data = await res.json();
-    localStorage.setItem('token', data.access_token);
-    closeModal('modal-login');
-    fetchDashboard();
-  } catch (e) {
-    console.error(e);
-    showToast('Fallo al contactar el servidor de login');
-  }
-}
 
-// Submit registration credentials
-async function submitRegister() {
-  const username = document.getElementById('auth-username').value.trim();
-  const password = document.getElementById('auth-password').value;
-  if (!username || !password) {
-    showToast('Debe ingresar usuario y contraseña');
-    return;
-  }
-  try {
-    const res = await apiFetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      showToast(err.detail || 'Error al registrar');
-      return;
+@app.post("/api/onboard-profile")
+async def onboard_profile(request: Request):
+    """Create user profile during onboarding (no auth required).
+    Expects a JSON body containing `user_id` and the same fields as the regular profile endpoint.
+    """
+    data = await request.json()
+    user_id = data.get("user_id")
+    if not user_id:
+        raise HTTPException(status_code=400, detail="user_id required for onboarding")
+    # Calculate metabolic targets
+    plan = nutrition_calc.calculate_nutrition_plan(
+        gender=data.get("gender", "male"),
+        age=int(data.get("age", 25)),
+        height_cm=float(data.get("height_cm", 175)),
+        current_weight_kg=float(data.get("current_weight_kg", 75)),
+        target_weight_kg=float(data.get("target_weight_kg", 70)),
+        activity_level=data.get("activity_level", "moderate"),
+        goal=data.get("goal", "lose_weight"),
+        weeks=int(data.get("target_weeks", 8))
+    )
+    full_profile = {
+        "user_id": int(user_id),
+        "name": data.get("name", "Usuario"),
+        "gender": data.get("gender", "male"),
+        "age": int(data.get("age", 25)),
+        "height_cm": float(data.get("height_cm", 175)),
+        "current_weight_kg": float(data.get("current_weight_kg", 75)),
+        "target_weight_kg": float(data.get("target_weight_kg", 70)),
+        "activity_level": data.get("activity_level", "moderate"),
+        "goal": data.get("goal", "lose_weight"),
+        "target_weeks": int(data.get("target_weeks", 8)),
+        **plan
     }
-    // Auto‑login after successful registration
-    const loginRes = await apiFetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
-    if (loginRes.ok) {
-      const loginData = await loginRes.json();
-      localStorage.setItem('token', loginData.access_token);
-      closeModal('modal-login');
-      fetchDashboard();
-    } else {
-      const err = await loginRes.json();
-      showToast(err.detail || 'Registro creado, pero fallo al iniciar sesión');
-    }
-  } catch (e) {
-    console.error(e);
-    showToast('Fallo al contactar el servidor de registro');
-  }
-}
+    database.save_user_profile(full_profile)
+    return {"status": "ok", "profile": full_profile}

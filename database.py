@@ -88,6 +88,24 @@ def init_db() -> None:
     conn.commit()
     conn.close()
 
+    # Migration: ensure user_id columns exist in tables for older DB versions
+    migration_conn = get_db_connection()
+    migration_cursor = migration_conn.cursor()
+    try:
+        migration_cursor.execute("ALTER TABLE user_profile ADD COLUMN user_id INTEGER NOT NULL DEFAULT 1")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        migration_cursor.execute("ALTER TABLE daily_meals ADD COLUMN user_id INTEGER NOT NULL DEFAULT 1")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        migration_cursor.execute("ALTER TABLE weight_logs ADD COLUMN user_id INTEGER NOT NULL DEFAULT 1")
+    except sqlite3.OperationalError:
+        pass
+    migration_conn.commit()
+    migration_conn.close()
+
 def get_user_profile(user_id: int) -> Optional[Dict[str, Any]]:
     """Retrieve the profile for the given user_id, or None if not set."""
     conn = get_db_connection()
