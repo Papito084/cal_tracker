@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="MotoGP " id="CDC3695C-CCA7-C546-4C1B-632A26843EA5" version="3.5">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 13:40:16 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>CDC3695C-CCA7-C546-4C1B-632A26843EA5</designId>
+</OSDM_Design>

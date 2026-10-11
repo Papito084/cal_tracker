@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DEA5DA4E-21FD-6ED7-103E-BA0DB87360F2" containerWithKeyObject="BD1846C4-6DCB-3078-7717-B37A0B574AF2" localFKIndex="2C2A6FE5-16F2-A8D5-319A-7F6ED216E33C" name="DATOS_CARRERA_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>0F5AB1CF-FDA5-BA15-8CF7-7337C81F5CDD</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<referredTableLongName>CARRERA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>62D3FB8F-0E56-BE08-539D-4AFB16823F2D</referredTableID>
+<keyObject>581818CE-DB94-0886-0B40-793C6C99D27A</keyObject>
+<referredKeyID>581818CE-DB94-0886-0B40-793C6C99D27A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Dia,Hora</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

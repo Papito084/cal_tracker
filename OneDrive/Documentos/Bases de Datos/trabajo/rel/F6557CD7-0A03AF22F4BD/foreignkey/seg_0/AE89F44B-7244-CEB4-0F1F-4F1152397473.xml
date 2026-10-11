@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AE89F44B-7244-CEB4-0F1F-4F1152397473" containerWithKeyObject="5760EE71-80FA-08E1-845A-11FA92B076B0" localFKIndex="B4E618B0-FF34-118C-AA5E-ED4179F381F8" name="COMPRA_PRODUCTO_TICKET_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>D4AE3B3B-D361-A782-40D1-346B385C4B66</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<referredTableLongName>TICKET</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2E67FF3F-36F8-6659-D130-9A41FDA3B607</referredTableID>
+<keyObject>0B1C9B1B-0D36-CEF5-0177-3AB489405DB5</keyObject>
+<referredKeyID>0B1C9B1B-0D36-CEF5-0177-3AB489405DB5</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_TICKET</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

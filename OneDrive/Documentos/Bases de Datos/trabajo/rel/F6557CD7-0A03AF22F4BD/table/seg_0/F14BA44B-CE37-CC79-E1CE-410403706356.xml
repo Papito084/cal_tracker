@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F14BA44B-CE37-CC79-E1CE-410403706356" name="ORGANIZACION">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>8BC0BC89-690B-4578-D12F-96CCE4159323</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_ORGANIZACION" id="B964C4A0-2FD4-81F1-8D58-AE6AD0BCCF73">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>2323F380-53BC-3898-D518-BDF6C03CEA35</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CIF" id="C0389385-6DFB-DBA5-1610-D8D8C60B955B">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>18F25228-69FB-9BBA-99A4-435CF04F0913</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE_COMERCIAL" id="77202DB1-D923-1048-EAA7-A47BD7E65891">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>76D5F992-2143-9D77-FC77-4ECB55019D3D</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTACTO" id="846B65B4-D243-4605-0A01-298913E8D5B9">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>A1A7AB6A-4095-789D-1753-1B89E7EE1479</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AEFEF1E7-74CE-F6FB-6363-76430C5B49FB" name="ORGANIZACION_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>23846F46-E311-EF98-2744-E23E7DABBD11</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B964C4A0-2FD4-81F1-8D58-AE6AD0BCCF73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B06E7AF9-226D-4AFC-F905-CCBAF692ECBB" name="ORGANIZACION_CIF_UN">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>A69EF577-5871-4F31-44DE-6143E157C62F</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0389385-6DFB-DBA5-1610-D8D8C60B955B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

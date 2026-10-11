@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BCCA2854-EE65-4A05-17F7-48447F482670" name="ACTO">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>A8F4FB1B-1945-06AB-8B21-C4A39594CE68</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Fecha" id="B0DF53FE-8339-12A1-33C9-4B5C59979D6E">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>9DC29254-CA4F-DDFD-CF4F-E4997728348C</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora" id="2BC71F4A-2FE9-48D0-17D6-181A79B0AA2F">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>FB8393B8-31DD-31B2-E3E9-C8A824678EB9</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Direccion" id="3593F099-BD06-CE11-E6FF-02FD3E06BFFD">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>18B3B2DC-41D7-7798-71FA-6DC448BAD67A</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="2E9DF55F-5AFE-81D8-AC67-F14B67576734">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>945ABDB8-738A-6816-600C-4C4FC5DD60A4</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descripcion" id="6B43E0BC-CB78-743D-B53E-5C1719151FEC">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>3D983C98-448B-7381-3327-7090CAED1FA9</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 CHAR</dataTypeSize>
+<ownDataTypeParameters>1000 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Contacto" id="A61871C8-1AB3-ECBA-DC11-2965577DD99F">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>DF3716A3-F86E-4E08-6BA1-F4CDBBC64EBB</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="99C54C9A-BF7C-EA80-3533-B929CB4FDC1C" name="ACTO_OFICIAL_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>D789984E-6B24-178F-83E2-57146EEDA184</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0DF53FE-8339-12A1-33C9-4B5C59979D6E"/>
+<colUsage columnID="2BC71F4A-2FE9-48D0-17D6-181A79B0AA2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C39A848E-B71B-8C58-2A0A-5531C3259F3E" name="ACTO_OFICIAL_Direccion_UN">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>EAAB445E-C767-405C-DB6E-49E372B4B9FD</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3593F099-BD06-CE11-E6FF-02FD3E06BFFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="67ABFA69-4408-F812-E13C-9F08E873E6DB" name="ACTO_OFICIAL_Telefono_UN">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>499597F5-030C-D02F-7B99-DC2C9E610214</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E9DF55F-5AFE-81D8-AC67-F14B67576734"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5BDB5E41-1B3D-83E6-0B7F-8F5B08EFE4F1" name="ACTO_OFICIAL_Descripcion_UN">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>F300BF84-5578-3655-41EB-B829DC06EA1D</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B43E0BC-CB78-743D-B53E-5C1719151FEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D7DD0FC-20C9-C470-5561-37D4B52DBC24" name="ACTO_OFICIAL_Contacto_UN">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>2B7CFEEB-FBEC-7DDE-BB61-BEA9CADAFDDC</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A61871C8-1AB3-ECBA-DC11-2965577DD99F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BE3A6E66-F92B-981D-98B8-DF43ADF16857" name="ACTO_Contacto_UN">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:44:03 UTC</createdTime>
+<generatorID>F8722C91-32A2-4ABB-BA83-9449B60DA38A</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A61871C8-1AB3-ECBA-DC11-2965577DD99F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

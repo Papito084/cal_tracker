@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F331D1A-9FF8-C6D9-4DC5-E0D3E1C9DAAA" name="PATROCINA">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ORGANIZACION_ID_ORGANIZACION" id="9A0EB46D-152C-C7B2-7848-FCA724F1344D">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BD003969-5A0B-2974-DE38-B22C355245BA" referredColumn="B964C4A0-2FD4-81F1-8D58-AE6AD0BCCF73"/>
+</associations>
+</Column>
+<Column name="EVENTO_ID_EVENTO" id="FF67FD3D-3DB0-0C09-BB20-ED07A8BFAF1F">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DB278993-4C6C-B1E7-F87C-0282677CD8CB" referredColumn="166E5C50-D3DA-4790-E87F-F89C000C59EE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="158AB20B-663E-B2EA-5E0C-23A9B8822EDA" name="PATROCINA_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A0EB46D-152C-C7B2-7848-FCA724F1344D"/>
+<colUsage columnID="FF67FD3D-3DB0-0C09-BB20-ED07A8BFAF1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1194049D-1DD3-75CF-69DA-1C350A4D76B6" name="PATROCINA_ORGANIZACION_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>8667D45B-3812-0F30-EA91-DEFCA96544DD</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A0EB46D-152C-C7B2-7848-FCA724F1344D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3042AC42-E6B1-6AC3-7314-250BF846081E" name="PATROCINA_EVENTO_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>8667D45B-3812-0F30-EA91-DEFCA96544DD</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF67FD3D-3DB0-0C09-BB20-ED07A8BFAF1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

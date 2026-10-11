@@ -1,0 +1,173 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2E67FF3F-36F8-6659-D130-9A41FDA3B607" name="TICKET">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>D40C5147-112D-8946-E73A-86C2C0A7B877</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_TICKET" id="663483AB-0F4F-BB1F-6E45-0F31F66B9D04">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>A972D442-01D4-1EE8-6BB1-C58CD31552DA</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_EVENTO" id="5203CE11-F119-784B-471D-B94420CE32BA">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>64494B99-FD7E-9F2C-2004-904481D7B159</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_ASISTENTE" id="DA44BBE7-7135-034C-3149-4691F7865662">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>7E85B642-F5ED-8F5A-CCAC-F10258151428</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE_TICKET" id="F6804A14-8E4A-882C-3860-489A29290F74">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>76A688F4-07F8-F7A7-5C5F-3B989B29E33F</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRECIO_BASE" id="0AEBB0A8-7EB5-0B91-2C85-1F2FAA5FADFF">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>CCBCE40A-ACDE-BD64-3520-9A9AEAAF213E</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_TICKET" id="430791F8-4F14-ABB1-B239-C38242307F3B">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>CD168971-D329-4AB8-D535-3A566811629D</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ES_NOMINATIVO" id="04495960-3612-F140-C36D-EBAFC369F359">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>80D9B2BD-3C44-8F8C-39E2-0012444F0235</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENTO_ID_EVENTO" id="693ADCF2-48C4-07B3-2591-8431438D05DB">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>AD2330B5-479A-A2B2-0706-B9A16C2D53C5</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3FED572D-B762-B4B0-FE7E-85C070652230" referredColumn="166E5C50-D3DA-4790-E87F-F89C000C59EE"/>
+</associations>
+</Column>
+<Column name="PERSONA_ID_PERSONA" id="51036876-22F2-C7E3-95B4-65A7E79BD460">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>F75CDEB0-792B-5D57-23F4-541AD02EFC6F</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F7F9052-1441-C32E-A393-B4AD68081410" referredColumn="7A4F6687-E274-8E7A-24CF-F643008F6475"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0B1C9B1B-0D36-CEF5-0177-3AB489405DB5" name="TICKET_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>3C10F224-4E32-553D-65EE-900368672879</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="663483AB-0F4F-BB1F-6E45-0F31F66B9D04"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="072E451F-30CC-8D13-C884-5E0206285B49" name="TICKET__IDX">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>B1042261-3C42-1A78-5B5A-1B5B8DA846CE</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="51036876-22F2-C7E3-95B4-65A7E79BD460"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3B9344AF-7CEA-715F-A4CC-AACC4358EE0C" name="TICKET_PERSONA_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>B1042261-3C42-1A78-5B5A-1B5B8DA846CE</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="51036876-22F2-C7E3-95B4-65A7E79BD460"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="91321C6B-9897-C88B-6C5F-E02432912C21" name="TICKET_EVENTO_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>9EDF4816-EF97-6F2B-8052-5C8CBAF81C3E</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="693ADCF2-48C4-07B3-2591-8431438D05DB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

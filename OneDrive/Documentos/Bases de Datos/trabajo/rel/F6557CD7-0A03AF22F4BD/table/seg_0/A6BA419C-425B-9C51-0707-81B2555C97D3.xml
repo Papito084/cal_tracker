@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A6BA419C-425B-9C51-0707-81B2555C97D3" name="DONACION">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>6FE4AA6E-AB1C-553F-745D-55242C995001</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DONACION" id="A51BFB1C-DD36-2B4B-999C-616E15742CEC">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>8BC005DF-B735-966F-7DF0-FF2734CF29E3</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_DONANTE" id="3883AD1A-2B92-9A56-CB22-94FC9CBAF00A">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>27417875-DFEE-2A62-B842-B7B72ACDA3CF</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_EVENTO" id="1CEB4BF4-8C6C-9240-10C4-F88450CC8333">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>9495583E-099E-F86E-AD2F-EFD8C0B775AF</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CANTIDAD" id="C30A15CC-9E0E-C33D-A674-65F6BD356190">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>D7F8B59D-CF4D-4808-957F-1F9CA9684383</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FEHCA_DONACION" id="33EE36BD-04EA-EDA7-3817-63A463CC3DE0">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>5CF2DA3D-4CA9-5517-225C-C403D2CFDD4E</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CERTIFICADO_GENERADO" id="E6951A5A-3D7F-EE07-08E7-DE2E3DBFDBE6">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>027AB700-FEA8-BF01-0DCF-8F79F12DCC8E</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECIBO_FISCAL_ID_RECIBO" id="D17842CB-0F71-F69C-B04E-0AC414D0B816">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>99F6BF7B-7EE3-DBF5-89E4-3B037D0F8DFE</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="188C1173-4BE2-81D6-F84A-A4F0D88514A4" referredColumn="CC630353-B38B-BBC7-E01A-7A6110F8BE3B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D78C8DC-EC85-9933-3759-E7FC9D420297" name="DONACION_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>2640B16D-62BE-AB12-113A-A22E4DF2A50E</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A51BFB1C-DD36-2B4B-999C-616E15742CEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C6C956AE-FB2C-517B-EFD0-C3FA7C5B0C6F" name="DONACION__IDX">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>241FE7BB-EBE0-E569-04FF-46274BF85AFA</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="D17842CB-0F71-F69C-B04E-0AC414D0B816"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D6509971-751E-ADEC-6F30-F217A068B79D" name="DONACION_RECIBO_FISCAL_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>241FE7BB-EBE0-E569-04FF-46274BF85AFA</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D17842CB-0F71-F69C-B04E-0AC414D0B816"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

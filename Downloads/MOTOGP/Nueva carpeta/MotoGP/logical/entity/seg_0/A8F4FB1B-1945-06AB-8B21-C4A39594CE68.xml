@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A8F4FB1B-1945-06AB-8B21-C4A39594CE68" name="ACTO">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:12:10 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Fecha" id="9DC29254-CA4F-DDFD-CF4F-E4997728348C">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:12:45 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Hora" id="FB8393B8-31DD-31B2-E3E9-C8A824678EB9">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:13:00 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Direccion" id="18B3B2DC-41D7-7798-71FA-6DC448BAD67A">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:13:19 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono" id="945ABDB8-738A-6816-600C-4C4FC5DD60A4">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:13:42 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Descripcion" id="3D983C98-448B-7381-3327-7090CAED1FA9">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:14:05 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 CHAR</dataTypeSize>
+<ownDataTypeParameters>1000 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Contacto" id="DF3716A3-F86E-4E08-6BA1-F4CDBBC64EBB">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:14:29 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D789984E-6B24-178F-83E2-57146EEDA184" name="ACTOS_OFICIALES PK">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:12:59 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9DC29254-CA4F-DDFD-CF4F-E4997728348C</attributeRef>
+<attributeRef>FB8393B8-31DD-31B2-E3E9-C8A824678EB9</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="EAAB445E-C767-405C-DB6E-49E372B4B9FD" name="Direccion">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:14:55 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="false"/>
+</engineerTo>
+<newElementsIDs>18B3B2DC-41D7-7798-71FA-6DC448BAD67A</newElementsIDs>
+<usedAttributes>
+<attributeRef>18B3B2DC-41D7-7798-71FA-6DC448BAD67A</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="499597F5-030C-D02F-7B99-DC2C9E610214" name="Telefono">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:15:15 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="false"/>
+</engineerTo>
+<newElementsIDs>945ABDB8-738A-6816-600C-4C4FC5DD60A4</newElementsIDs>
+<usedAttributes>
+<attributeRef>945ABDB8-738A-6816-600C-4C4FC5DD60A4</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="F300BF84-5578-3655-41EB-B829DC06EA1D" name="Descripcion">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 14:15:38 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="false"/>
+</engineerTo>
+<newElementsIDs>3D983C98-448B-7381-3327-7090CAED1FA9</newElementsIDs>
+<usedAttributes>
+<attributeRef>3D983C98-448B-7381-3327-7090CAED1FA9</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="F8722C91-32A2-4ABB-BA83-9449B60DA38A" name="Contact">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:43:27 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<newElementsIDs>DF3716A3-F86E-4E08-6BA1-F4CDBBC64EBB</newElementsIDs>
+<usedAttributes>
+<attributeRef>DF3716A3-F86E-4E08-6BA1-F4CDBBC64EBB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

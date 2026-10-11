@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_11" directorySegmentName="seg_0" id="F9105BFE-8654-778D-D94D-6C4B62DC4707">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:14:18 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<targetPk>CCA45837-480F-5476-6FD1-4D30E78D2AAC</targetPk>
+<identifying>false</identifying>
+<nameOnSource>Guarda tiempos</nameOnSource>
+<nameOnTarget>Corre</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>598FAF7E-FEC2-AEA7-6B45-BE86A0D4379B</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>3CD0D59E-2422-77A0-BFE1-D598578461D0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

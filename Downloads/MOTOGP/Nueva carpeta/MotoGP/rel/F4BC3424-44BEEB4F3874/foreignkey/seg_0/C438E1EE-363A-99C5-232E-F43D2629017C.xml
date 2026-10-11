@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C438E1EE-363A-99C5-232E-F43D2629017C" containerWithKeyObject="8164E30F-22E6-A458-39D0-FA4643589FB5" localFKIndex="2840EE74-D7B9-1FAD-6388-55454059CFFD" name="RECORD_TRAMO_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:42:17 UTC</createdTime>
+<generatorID>8ADB31DB-4C5F-E46F-9587-18F56184479A</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<referredTableLongName>TRAMO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>24639F15-4B4F-35D1-439A-9B31F39D2DCC</referredTableID>
+<keyObject>72336EDF-E962-CC68-54C4-08EC82FC0424</keyObject>
+<referredKeyID>72336EDF-E962-CC68-54C4-08EC82FC0424</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>TRAMO_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

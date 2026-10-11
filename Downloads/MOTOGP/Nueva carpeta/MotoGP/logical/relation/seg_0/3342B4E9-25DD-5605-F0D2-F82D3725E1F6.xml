@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Datos_Piloto" directorySegmentName="seg_0" id="3342B4E9-25DD-5605-F0D2-F82D3725E1F6">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:02:10 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<sourcePk>CCA45837-480F-5476-6FD1-4D30E78D2AAC</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>Posee </nameOnSource>
+<nameOnTarget>Anotados </nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3CD0D59E-2422-77A0-BFE1-D598578461D0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3A728F14-96D6-05EC-31EB-9536A5D94CE8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

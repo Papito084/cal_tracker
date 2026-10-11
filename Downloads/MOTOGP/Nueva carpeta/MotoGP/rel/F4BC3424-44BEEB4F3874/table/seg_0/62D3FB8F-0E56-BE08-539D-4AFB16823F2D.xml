@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="62D3FB8F-0E56-BE08-539D-4AFB16823F2D" name="CARRERA">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>AF787723-261B-35EE-A56D-5C2BBAF5BC71</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Dia" id="6BF8639E-91BE-A497-8B6B-DB9FD1F35F07">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>1A8B185B-40F2-BAE9-CAAB-75DD7E9DC767</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora" id="617DCA93-268E-3E45-A250-1F0500723BB2">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>3DF88770-0758-F249-18AE-0554101D8E12</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Vueltas" id="A82767F8-990C-5C54-8BE8-E972EA674482">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>FBADF41E-F493-079F-3631-E4E7FA5FF174</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Carrera_Seca/Mojada" id="46E5D589-C995-5AE5-3E12-722E44DCEB4A">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>279D5153-E0B9-04CD-BA78-CA8BAAEE06AD</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SESION_Mejor_Tiempo" id="E2A2D52F-367F-81D4-30B0-C774F36B0D82">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>FAE42A2A-C2F7-554C-ECB5-B657D864CDC9</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="581818CE-DB94-0886-0B40-793C6C99D27A" name="CARRERA_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>2B60C539-D343-3BC4-24AC-F0FAC84CA4AF</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6BF8639E-91BE-A497-8B6B-DB9FD1F35F07"/>
+<colUsage columnID="617DCA93-268E-3E45-A250-1F0500723BB2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC79785E-0526-BF80-186A-AE726D779D82" name="CARRERA__IDX">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>E410A612-85BD-666B-F2A3-C9FAF003962E</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="E2A2D52F-367F-81D4-30B0-C774F36B0D82"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5F86BD31-850C-E920-B29D-BD0FD6255454" containerWithKeyObject="62D3FB8F-0E56-BE08-539D-4AFB16823F2D" localFKIndex="0ACC766B-76FB-0F99-A1CA-C5EE7513C961" name="CARRERA_SESION_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:42:17 UTC</createdTime>
+<generatorID>E410A612-85BD-666B-F2A3-C9FAF003962E</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<referredTableLongName>SESION</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A1E91402-ED6F-0CB1-96A0-EB4E1D639F2B</referredTableID>
+<keyObject>7E9AC602-941F-03C6-C8E5-80021ADC4511</keyObject>
+<referredKeyID>7E9AC602-941F-03C6-C8E5-80021ADC4511</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Mejor_Tiempo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

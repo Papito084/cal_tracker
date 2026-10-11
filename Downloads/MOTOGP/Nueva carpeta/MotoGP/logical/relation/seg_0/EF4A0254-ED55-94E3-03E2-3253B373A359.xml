@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Asistencia" directorySegmentName="seg_0" id="EF4A0254-ED55-94E3-03E2-3253B373A359">
+<createdBy>Alumno</createdBy>
+<createdTime>2025-10-03 15:04:36 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<engineerTo>
+<item key="F4BC3424-E142-5D28-6838-44BEEB4F3874" value="true"/>
+</engineerTo>
+<sourcePk>CCA45837-480F-5476-6FD1-4D30E78D2AAC</sourcePk>
+<targetPk>D789984E-6B24-178F-83E2-57146EEDA184</targetPk>
+<identifying>false</identifying>
+<nameOnSource>Acuden a</nameOnSource>
+<nameOnTarget> </nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>3CD0D59E-2422-77A0-BFE1-D598578461D0</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>A8F4FB1B-1945-06AB-8B21-C4A39594CE68</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

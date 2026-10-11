@@ -1,0 +1,157 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="24639F15-4B4F-35D1-439A-9B31F39D2DCC" name="TRAMO">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>E7499D53-EC65-A013-92D2-6F94A6E8FAF1</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Metros" id="2A721BE6-6FC9-7439-A06B-A8DC8D77BB63">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>BFD2FA9B-18FD-1E68-2E65-1F6C63887AD9</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Diferencia_Altura" id="528AE82B-FC43-5C69-7EB7-17E40BDD1BCC">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>2B254BA9-63C4-9A63-DE39-730858ED8B5B</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tipo_Asfalto" id="CF8BA7C3-677F-0C57-0E9B-9AD9BEA4CF14">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>2B21487E-4760-7A22-A990-56D61AF5C7FD</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Velocidad_Media" id="4794B3A0-A64D-24E2-BE05-57DEB9BA21BD">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>C0542C6B-4CD2-8F96-67BD-42732187834E</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Velocidad_Maxima" id="2013B727-6204-5299-AAEA-9410A896EC31">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>C7340BA3-A133-8BFC-932D-E352400B17C0</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CIRCUITO_Nombre" id="90719F3E-13D9-CFF8-0F2A-9297487462B5">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>6D4EC31A-106E-7DAB-36D8-4D41B5B0F48E</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="29A4676F-0184-D501-8BCA-48CE8AC7AE7F" referredColumn="4DFCADE8-044C-79D2-83E5-6256C3102521"/>
+</associations>
+</Column>
+<Column name="RECORD_Tiempo" id="68E6F528-5F28-3911-B585-A136E019DE26">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>95C4A997-06F3-D80F-1988-A7C4923935FE</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RECORD_Piloto" id="99FCCF27-6BCC-1AF8-DCEE-6FB42E997798">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>5922F28D-A260-9E72-136F-5301D27B5DA3</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRAMO_ID" id="3FD04C7F-62CD-759C-74E5-117BAD79EE28">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="72336EDF-E962-CC68-54C4-08EC82FC0424" name="TRAMO_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="3FD04C7F-62CD-759C-74E5-117BAD79EE28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C7AAC017-B7AD-12D8-0249-935BC3C17B96" name="TRAMO__IDX">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>8ADB31DB-4C5F-E46F-9587-18F56184479A</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="68E6F528-5F28-3911-B585-A136E019DE26"/>
+<colUsage columnID="99FCCF27-6BCC-1AF8-DCEE-6FB42E997798"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6FD22375-5B64-C71A-9B1B-1793E095D15C" name="TRAMO_CIRCUITO_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>070EDDBA-1860-E610-CAC5-DF1090D53661</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90719F3E-13D9-CFF8-0F2A-9297487462B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

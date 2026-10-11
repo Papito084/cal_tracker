@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5760EE71-80FA-08E1-845A-11FA92B076B0" name="COMPRA_PRODUCTO">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="VENTA_ID_VENTA" id="AC0D153C-3643-AEB3-71BB-C27748DAABB0">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C66AD3C-9263-CEA7-6587-282E255BE5D3" referredColumn="59A18C19-7CC3-427D-ACFA-7E1FAB3A8A17"/>
+</associations>
+</Column>
+<Column name="TICKET_ID_TICKET" id="29ECD440-5CD2-98E0-C119-753D9F91F9C5">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AE89F44B-7244-CEB4-0F1F-4F1152397473" referredColumn="663483AB-0F4F-BB1F-6E45-0F31F66B9D04"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="213CABF3-A8FD-FA86-6AE9-7B83C8B1E213" name="COMPRA_PRODUCTO_PK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<ownerDesignName>trabajo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC0D153C-3643-AEB3-71BB-C27748DAABB0"/>
+<colUsage columnID="29ECD440-5CD2-98E0-C119-753D9F91F9C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="20C52970-75B9-56AD-3459-7EA808932795" name="COMPRA_PRODUCTO_VENTA_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>D4AE3B3B-D361-A782-40D1-346B385C4B66</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC0D153C-3643-AEB3-71BB-C27748DAABB0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B4E618B0-FF34-118C-AA5E-ED4179F381F8" name="COMPRA_PRODUCTO_TICKET_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-11-18 18:09:07 UTC</createdTime>
+<generatorID>D4AE3B3B-D361-A782-40D1-346B385C4B66</generatorID>
+<ownerDesignName>trabajo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29ECD440-5CD2-98E0-C119-753D9F91F9C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

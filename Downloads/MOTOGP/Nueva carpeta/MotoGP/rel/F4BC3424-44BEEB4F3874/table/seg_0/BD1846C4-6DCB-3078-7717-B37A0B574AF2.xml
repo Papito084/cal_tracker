@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BD1846C4-6DCB-3078-7717-B37A0B574AF2" name="DATOS">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>3A728F14-96D6-05EC-31EB-9536A5D94CE8</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Neumatico_Delantero" id="A315FFAE-7583-F717-C799-E4AB37B7A6DB">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>440C7023-F64C-104A-DD62-97F866035B59</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Neumatico_Trasero" id="789870E5-08F9-56B0-E79B-F3EFD377639F">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>7081E318-C99B-2ABE-0C21-E6D13017ED04</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Caidas_Sufridas" id="0031DE38-8971-4C1F-DB3C-A6368AE2438C">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>CEF634D3-A6C0-087B-FB24-262E33F6934C</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tiempo" id="B93AB814-1D7C-714D-7900-ECCD42790F43">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>12E02D73-93D1-DF1E-542B-2B9E1B85FA89</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PILOTO_Dorsal" id="126E9CD8-7A84-BEFB-97BD-13103837355F">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>544E1136-37B9-F3EB-5EE7-AFD9198F1CFD</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="55B5CD5E-9748-8F67-0001-845EC4494A93" referredColumn="5038FAAF-98FF-EB8B-01AA-B13D4658B6CC"/>
+</associations>
+</Column>
+<Column name="CARRERA_Dia" id="422087D9-ABD2-4426-5C68-2A7C668A5972">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>6860BAD9-E5CF-5068-A219-953ECB706306</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DEA5DA4E-21FD-6ED7-103E-BA0DB87360F2" referredColumn="6BF8639E-91BE-A497-8B6B-DB9FD1F35F07"/>
+</associations>
+</Column>
+<Column name="CARRERA_Hora" id="320CDF80-25B4-E3E3-ED80-A0D7CBDA74AB">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>98404A29-B0E3-0AC5-3F3C-8456359487F5</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DEA5DA4E-21FD-6ED7-103E-BA0DB87360F2" referredColumn="617DCA93-268E-3E45-A250-1F0500723BB2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2C2A6FE5-16F2-A8D5-319A-7F6ED216E33C" name="DATOS_CARRERA_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>0F5AB1CF-FDA5-BA15-8CF7-7337C81F5CDD</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="422087D9-ABD2-4426-5C68-2A7C668A5972"/>
+<colUsage columnID="320CDF80-25B4-E3E3-ED80-A0D7CBDA74AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="232F35F7-8539-EE22-EF50-FB85CB420D40" name="DATOS_PILOTO_FK">
+<createdBy>alexr</createdBy>
+<createdTime>2025-10-06 14:22:57 UTC</createdTime>
+<generatorID>3342B4E9-25DD-5605-F0D2-F82D3725E1F6</generatorID>
+<ownerDesignName>MotoGP </ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="126E9CD8-7A84-BEFB-97BD-13103837355F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
