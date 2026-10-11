@@ -34,7 +34,12 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)\n\n# Global exception handler\n@app.exception_handler(Exception)\nasync def global_exception_handler(request: Request, exc: Exception):\n    return JSONResponse(status_code=500, content={"message": "Internal server error", "details": str(exc)})
+)
+
+# Global exception handler
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(status_code=500, content={"message": "Internal server error", "details": str(exc)})
 
 # -------------------------------------------------------------
 # API Endpoints
