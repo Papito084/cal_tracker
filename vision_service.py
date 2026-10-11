@@ -79,7 +79,8 @@ def analyze_with_gemini(image_bytes: bytes, mime_type: str = "image/jpeg", api_k
     """
     key = api_key or settings.GEMINI_API_KEY
     if not key:
-        raise ValueError("GEMINI_API_KEY no encontrada. Comprueba que tu clave esté guardada en el archivo .env")
+        # Return a user-friendly error dict instead of raising, keeping the app alive
+        return {"error": "Clave GEMINI_API_KEY no configurada. Por favor, configura la variable en .env."}
 
     b64_image = base64.b64encode(image_bytes).decode("utf-8")
     payload = {
@@ -129,8 +130,11 @@ def analyze_with_gemini(image_bytes: bytes, mime_type: str = "image/jpeg", api_k
                 msg = error_body
             last_error = f"Gemini ({model} - HTTP {e.code}): {msg}"
             # If 503 (temporary high demand) or 404 (model deprecated), try next model
-            if e.code in (503, 404, 429):
+            # If 429 (rate limit), raise immediate error to be handled upstream
+            if e.code in (503, 404):
                 continue
+            elif e.code == 429:
+                raise RuntimeError("Rate limit exceeded")
             else:
                 raise RuntimeError(last_error)
         except urllib.error.URLError as e:
@@ -176,6 +180,37 @@ def analyze_with_openai(image_bytes: bytes, mime_type: str = "image/jpeg", api_k
     return extract_json_from_text(content)
 
 def analyze_food_image(image_bytes: bytes, mime_type: str = "image/jpeg") -> Dict[str, Any]:
+    """
+    Main entry point for food image recognition.
+    Handles missing API keys, rate limits, and other errors gracefully,
+    returning a JSON-friendly error dictionary instead of raising exceptions.
+    """
+    # Attempt Gemini first if API key is configured
+    if settings.GEMINI_API_KEY:
+        try:
+            result = analyze_with_gemini(image_bytes, mime_type, settings.GEMINI_API_KEY)
+            if isinstance(result, dict) and "error" in result:
+                return result
+            return result
+        except RuntimeError as e:
+            if "Rate limit" in str(e) or "exceeded" in str(e):
+                return {"error": "El servicio de análisis visual con IA está saturado temporalmente, intenta más tarde"}
+        except Exception:
+            pass
+    # Fallback to OpenAI if configured
+    if settings.OPENAI_API_KEY:
+        try:
+            result = analyze_with_openai(image_bytes, mime_type, settings.OPENAI_API_KEY)
+            if isinstance(result, dict) and "error" in result:
+                return result
+            return result
+        except RuntimeError as e:
+            if "Rate limit" in str(e) or "exceeded" in str(e):
+                return {"error": "El servicio de análisis visual con IA está saturado temporalmente, intenta más tarde"}
+        except Exception:
+            pass
+    # If no API keys are configured or all attempts failed, return a friendly error
+    return {"error": "El servicio de análisis visual con IA no está disponible en este momento. Verifica la configuración de la clave API."}
     """
     Main entry point for food image recognition.
     Strictly executes real multimodal vision analysis and raises explicit exceptions

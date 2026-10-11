@@ -18,7 +18,10 @@ import nutrition_calc
 import vision_service
 
 # Initialize SQLite database
-database.init_db()
+try:
+    database.init_db()
+except Exception as e:
+    print(f"[WARNING] Database initialization failed: {e}")
 
 app = FastAPI(title=settings.APP_NAME, version=settings.APP_VERSION)
 app.include_router(auth_router)
